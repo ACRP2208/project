@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dedicatoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+body{
+    margin:0;
+    font-family:'Press Start 2P', cursive;
+    background:linear-gradient(#ffb6d9,#ffcce6);
+    overflow-x:hidden;
+    text-align:center;
+    position:relative;
+}
+
+/* SUELO PIXEL */
+.ground{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:80px;
+    background:#ff4da6;
+    border-top:6px solid white;
+}
+
+/* NUBES PIXEL */
+.cloud{
+    position:absolute;
+    top:50px;
+    font-size:40px;
+    animation: moveCloud 40s linear infinite;
+}
+
+@keyframes moveCloud{
+    from{ transform:translateX(-200px);}
+    to{ transform:translateX(120vw);}
+}
+
+/* CORAZONES FONDO */
+.heart{
+    position:fixed;
+    top:-20px;
+    font-size:20px;
+    animation: fall linear infinite;
+    color:#ff1a8c;
+    opacity:0.7;
+}
+
+@keyframes fall{
+    to{ transform: translateY(110vh); }
+}
+
+/* PERSONAJE */
+.player{
+    position:fixed;
+    bottom:80px;
+    left:-50px;
+    font-size:45px;
+    animation: walk 15s linear infinite;
+}
+
+@keyframes walk{
+    from{ left:-50px;}
+    to{ left:110%;}
+}
+
+/* CONTENIDO */
+.content{
+    padding:40px;
+    margin-bottom:120px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+    padding:20px;
+}
+
+.gallery img{
+    width:100%;
+    border:4px solid white;
+    box-shadow:4px 4px #ff4da6;
+    transition:0.3s;
+}
+.gallery img:hover{
+    transform:scale(1.1);
+}
+
+a{
+    display:inline-block;
+    margin:20px;
+    padding:15px;
+    background:#ff4da6;
+    color:white;
+    text-decoration:none;
+    border:4px solid white;
+    box-shadow:4px 4px #ff1a8c;
+}
+</style>
+
+</head>
+<body>
+
+<h2>💌 DEDICATORIA 💌</h2>
+
+<div class="carta">
+<p>
+Eres mi mejor historia, mi mejor recuerdo  
+y la razón por la que cada día vale la pena.  
+Gracias por existir en mi vida.  
+Te amo infinito 💖
+</p>
+</div>
+
+<a href="index.html">⬅ VOLVER</a>
+<script>
+/* CORAZONES CAYENDO */
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="💗";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.animationDuration = (Math.random()*3+3)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>{ heart.remove(); },6000);
+}
+setInterval(createHeart,700);
+</script>
+</body>
+</html>
